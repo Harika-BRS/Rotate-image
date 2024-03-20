@@ -26,6 +26,16 @@ function rotate(matrix) {
 }
 
 document.getElementById("submit").addEventListener("click", function() {
+  rotateMatrix();
+});
+
+document.getElementById("intervalsInput").addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    rotateMatrix();
+  }
+});
+
+function rotateMatrix() {
   const input = document.getElementById("intervalsInput").value;
   try {
     const matrix = JSON.parse(input);
@@ -36,10 +46,10 @@ document.getElementById("submit").addEventListener("click", function() {
     document.getElementById("output").innerText =
       "Invalid input. Please enter matrix in correct format.";
   }
-});
+}
 
-  // Add this script to clear the input field on page load
-  document.addEventListener('DOMContentLoaded', function() {
-    var intervalsInput = document.getElementById('intervalsInput');
-    intervalsInput.value = ''; // Set the input value to an empty string
-  });
+// Add this script to clear the input field on page load
+document.addEventListener('DOMContentLoaded', function() {
+  var intervalsInput = document.getElementById('intervalsInput');
+  intervalsInput.value = ''; // Set the input value to an empty string
+});
